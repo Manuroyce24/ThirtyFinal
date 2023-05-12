@@ -36,7 +36,7 @@ public class HomeController {
 
         Pageable pageable = PageRequest.of(page, 5, Sort.by("creationDate").descending());
 
-        if (searchTerm.isPresent()) {
+        if (searchTerm.isEmpty()) {
             model.addAttribute("posts", postService.findAllPosts(pageable));
         } else {
             model.addAttribute("posts", postService.searchPosts(searchTerm, pageable));
