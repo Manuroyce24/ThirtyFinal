@@ -22,7 +22,7 @@ public class LikeServiceImpl implements LikeService {
 	public void likePost(Long postId, BlogUser user) {
 		Post post = postRepository.findById(postId).orElseThrow(() -> new IllegalArgumentException("Post not found"));
 		Optional<Like> existingLike = likeRepository.findByBlogUserAndPost(user, post);
-		if (existingLike.isEmpty()) {
+		if (existingLike.isPresent()) {
 			Like like = new Like();
 			like.setBlogUser(user);
 			like.setPost(post);
