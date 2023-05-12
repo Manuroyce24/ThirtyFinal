@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: '17'
+          java-version: '8'
 
       - name: Build with Maven
         run: mvn clean install
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'thirty-tfg'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_324DDF169B534B14A172575924F01778 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4502E7E5DE694DAC9BB97BCA42D163B5 }}
           package: '*.jar'
